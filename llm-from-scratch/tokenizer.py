@@ -97,7 +97,7 @@ class BPETokenizer:
             expanded.extend(self._expand_token(token))
         return bytes(expanded).decode("utf-8")
 
-tokenizer = BPETokenizer("C:/Users/aktkr/llm/story.txt")
+tokenizer = BPETokenizer("C:/Users/aktkr/llm-from-scratch/story.txt")
 tokenizer.train()
 
 encoded = tokenizer.encode("the quick brown fox jumps over the lazy dog")
