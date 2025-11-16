@@ -62,6 +62,7 @@ class BPETokenizer:
             self.vocab_size += 1
 
         print(f"Training Complete: {len(self.merges)} merges learned.")
+        return 
 
     def encode(self, text: str):
         """
@@ -97,11 +98,13 @@ class BPETokenizer:
             expanded.extend(self._expand_token(token))
         return bytes(expanded).decode("utf-8")
 
-tokenizer = BPETokenizer("C:/Users/aktkr/llm-from-scratch/story.txt")
-tokenizer.train()
 
-encoded = tokenizer.encode("the quick brown fox jumps over the lazy dog")
-print(encoded)
+if __name__ == "__main__":
+    tokenizer = BPETokenizer("C:/Users/aktkr/llm-from-scratch/story.txt")
+    tokenizer.train()
 
-decoded = tokenizer.decode(encoded)
-print(decoded)
+    encoded = tokenizer.encode("the quick brown fox jumps over the lazy dog")
+    print(encoded)
+
+    decoded = tokenizer.decode(encoded)
+    print(decoded)
